@@ -25,41 +25,30 @@ Public Function TimerEx() As Currency
 End Function
 
 Sub Main()
-TestAttempts = 10
-Iterations = 1000
-Dim FilePath As String
-FilePath = "C:\Users\Saibamen\source\repos\Magisterka\VB6\da51f72f-7804-40fe-bc66-8fc5418325fb_001.data"
-
-Dim dblTimerDauer As Variant
-
-Dim lngTime As Long
-Dim lngIndex As Long
-
-' Use QueryPerformanceCounter instead of the more inaccurate GetTickCount
-dblTimerDauer = TimerEx
-lngTime = GetTickCount()
-
-Dim Caption As String
-
-' Measure
-Dim Text As String
-
-Dim x As Integer
-For x = 1 To Iterations
-    Text = ReadFileIntoString(FilePath)
-Next
-
-lngTime = GetTickCount - lngTime
-MsgBox (TimerEx - dblTimerDauer) & " Sekunden", 0, "Daten einlesen"
-Debug.Print "Execution took " & CStr(lngTime); " ms"
+    TestAttempts = 10
+    Iterations = 1000
+    FileModule.FilePath = "C:\Users\Saibamen\source\repos\Magisterka\VB6\da51f72f-7804-40fe-bc66-8fc5418325fb_001.data"
+    
+    ' Print empty line
+    Debug.Print
+    
+    Dim dblTimerDauer As Variant
+    'Dim lngTime As Long
+    
+    ' Use QueryPerformanceCounter instead of the more inaccurate GetTickCount
+    dblTimerDauer = TimerEx
+    'lngTime = GetTickCount()
+    
+    ' Measure
+    
+    Dim x As Integer
+    For x = 1 To TestAttempts
+        'Debug.Print "TestAttempts: " & x
+        Call ReadFile_ReadAllText
+    Next
+    
+    'lngTime = GetTickCount - lngTime
+    MsgBox (TimerEx - dblTimerDauer) & " seconds", 0, "Main"
+    'Debug.Print "Execution took " & CStr(lngTime); " ms"
 End Sub
 
-
-
-Public Function ReadFileIntoString(strFilePath As String) As String
-    Dim fso As New FileSystemObject
-    Dim ts As TextStream
-
-    Set ts = fso.OpenTextFile(strFilePath)
-    ReadFileIntoString = ts.ReadAll
-End Function
