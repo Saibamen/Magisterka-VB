@@ -32,11 +32,13 @@ Sub Main()
     ' Print empty line
     Debug.Print
     
-    Dim dblTimerDauer As Variant
+    'Dim stopwatch As Variant
+    ' Not useGetTickCount
     'Dim lngTime As Long
     
     ' Use QueryPerformanceCounter instead of the more inaccurate GetTickCount
-    dblTimerDauer = TimerEx
+    'stopwatch = TimerEx
+    ' Not useGetTickCount
     'lngTime = GetTickCount()
     
     ' Measure
@@ -48,7 +50,10 @@ Sub Main()
     Next
     
     'lngTime = GetTickCount - lngTime
-    MsgBox (TimerEx - dblTimerDauer) & " seconds", 0, "Main"
+    'stopwatch = TimerEx - stopwatch
+    'Debug.Print "Main: " & stopwatch
+    'MsgBox stopwatch & " seconds", 0, "Main"
+    ' Not useGetTickCount
     'Debug.Print "Execution took " & CStr(lngTime); " ms"
 End Sub
 

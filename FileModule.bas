@@ -4,8 +4,8 @@ Option Explicit
 Public FilePath As String
 
 Public Function ReadFile_ReadAllText()
-    Dim dblTimerDauer As Variant
-    dblTimerDauer = TimerEx
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
 
     Dim Text As String
     Dim x As Integer
@@ -14,7 +14,9 @@ Public Function ReadFile_ReadAllText()
         Text = ReadFileIntoString()
     Next
     
-    MsgBox (TimerEx - dblTimerDauer) & " seconds", 0, "ReadFile_ReadAllText"
+    stopwatch = TimerEx - stopwatch
+    Debug.Print "ReadFile_ReadAllText: " & stopwatch
+    'MsgBox stopwatch & " seconds", 0, "ReadFile_ReadAllText"
 End Function
 
 Public Function ReadFileIntoString() As String
