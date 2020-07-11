@@ -46,7 +46,7 @@ Sub Main()
     Dim x As Integer
     For x = 1 To TestAttempts
         'Debug.Print "TestAttempts: " & x
-        Call ReadFile_ReadAllText
+        Call ReadFile_AllText
     Next
     
     'lngTime = GetTickCount - lngTime

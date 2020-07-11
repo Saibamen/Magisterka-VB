@@ -3,7 +3,7 @@ Option Explicit
 
 Public FilePath As String
 
-Public Function ReadFile_ReadAllText()
+Public Function ReadFile_AllText()
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
@@ -15,8 +15,8 @@ Public Function ReadFile_ReadAllText()
     Next
     
     stopwatch = TimerEx - stopwatch
-    Debug.Print "ReadFile_ReadAllText: " & stopwatch
-    'MsgBox stopwatch & " seconds", 0, "ReadFile_ReadAllText"
+    Debug.Print "ReadFile_AllText: " & stopwatch
+    'MsgBox stopwatch & " seconds", 0, "ReadFile_AllText"
 End Function
 
 Public Function ReadFileIntoString() As String
