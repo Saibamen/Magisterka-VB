@@ -25,6 +25,19 @@ Public Function TimerEx() As Currency
 End Function
 
 Sub Main()
+    ' Zmiana nazwy plikow
+    'Dim FileName As String
+    'Dim NewFileName As String
+    'FileName = "C:\test\before.txt"
+    'NewFileName = "C:\test\after.txt"
+    'Name FileName As NewFileName
+    
+    ' Kopiowanie plikow
+    'FileCopy "C:\test\before.txt", "C:\test\after.txt"
+    
+    ' Usuwanie plikow
+    'Kill "c:\doomed_dir\*.*"
+    
     TestAttempts = 10
     Iterations = 1000
     FileModule.FilePath = "C:\Users\Saibamen\source\repos\Magisterka\VB6\da51f72f-7804-40fe-bc66-8fc5418325fb_001.data"
