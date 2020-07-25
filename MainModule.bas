@@ -52,6 +52,22 @@ Sub Main()
 
     Call RunTestsFor(FileTests, "ReadFile_AllText")
     
+    Debug.Print vbNewLine
+    
+    ' StringTests
+    'Debug.Print "StringTests" & vbNewLine
+
+    '
+    
+    'Debug.Print vbNewLine
+    
+    ' NumberTests
+    'Debug.Print "NumberTests" & vbNewLine
+
+    '
+    
+    'Debug.Print vbNewLine
+    
     stopwatch = TimerEx - stopwatch
     Debug.Print "All tests executed in " & stopwatch & " seconds"
     'MsgBox stopwatch & " seconds", 0, "Main"
