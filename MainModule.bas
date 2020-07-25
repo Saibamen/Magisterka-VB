@@ -58,7 +58,7 @@ Sub Main()
 
     Call RunTestsFor(FileTests, "ReadFile_AllText")
     Call RunTestsFor(FileTests, "ReadFile_ByLine")
-    'Call RunTestsFor(FileTests, "WriteFile_AllText")
+    Call RunTestsFor(FileTests, "WriteFile_AllText")
     'Call RunTestsFor(FileTests, "WriteFile_ByLine")
     'Call RunTestsFor(FileTests, "RenameFiles")
     'Call RunTestsFor(FileTests, "CopyFiles")

@@ -83,19 +83,38 @@ Public Sub ReadFile_ByLine()
     Call PrintElapsedTime("ReadFile_ByLine", stopwatch, testIterations)
 End Sub
 
+Public Sub WriteFile_AllText()
+    Dim testFileContent As String
+    testFileContent = ReadTestFileContent()
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Integer
+    For i = 1 To MainModule.Iterations
+        Dim filename As String
+        filename = TestFilePrefix & i & "_WriteAllText" & TestFileExtension
+        Dim fileNumber As Integer
+        fileNumber = FreeFile
+        
+        Open TestFilesDirectory & "\" & filename For Output As fileNumber
+            Print #fileNumber, testFileContent
+        Close fileNumber
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("ReadFile_AllText", stopwatch)
+    
+    Call DeleteTestFiles
+End Sub
+
 Private Sub CreateTestFiles()
     Call DeleteTestFiles
     
     Debug.Print "Creating test files..."
     
     Dim testFileContent As String
-    
-    Dim fileSystemObject As New fileSystemObject
-    Dim textStream As textStream
-
-    Set textStream = fileSystemObject.OpenTextFile(ReadTestFile)
-
-    testFileContent = textStream.ReadAll()
+    testFileContent = ReadTestFileContent()
     
     ' Create directory if not exist
     If Dir(TestFilesDirectory, vbDirectory) = "" Then
@@ -114,3 +133,12 @@ Private Sub CreateTestFiles()
         Close fileNumber
     Next
 End Sub
+
+Private Function ReadTestFileContent() As String
+    Dim fileSystemObject As New fileSystemObject
+    Dim textStream As textStream
+
+    Set textStream = fileSystemObject.OpenTextFile(ReadTestFile)
+
+    ReadTestFileContent = textStream.ReadAll()
+End Function
