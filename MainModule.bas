@@ -48,10 +48,8 @@ Sub Main()
     Dim stopwatch As Variant
     stopwatch = TimerEx
     
-    Dim x As Integer
-    For x = 1 To TestAttempts
-        Call CallByName(FileTests, "ReadFile_AllText", VbMethod)
-    Next
+    ' FileTests
+    Call RunTestsFor(FileTests, "ReadFile_AllText")
     
     stopwatch = TimerEx - stopwatch
     Debug.Print "All tests executed in " & stopwatch & " seconds"
@@ -61,4 +59,14 @@ End Sub
 Public Sub PrintElapsedTime(testName As String, stopwatch As Variant)
    Debug.Print testName & " N = " & Iterations & " = " & stopwatch & " seconds"
    MsgBox stopwatch & " seconds", 0, testName
+End Sub
+
+Public Sub RunTestsFor(staticClass As Variant, functionName As String)
+    Dim x As Integer
+    For x = 1 To TestAttempts
+        Call CallByName(staticClass, functionName, VbMethod)
+    Next
+    
+    ' Print empty line
+    Debug.Print
 End Sub
