@@ -39,7 +39,7 @@ Sub Main()
     TestAttempts = 10
     Iterations = 1000
     ' Change path for your user
-    FileModule.FilePath = "C:\Users\Adam\source\repos\magisterka\Magisterka-VB\da51f72f-7804-40fe-bc66-8fc5418325fb_001.data"
+    FileTests.FilePath = "C:\Users\Adam\source\repos\magisterka\Magisterka-VB\da51f72f-7804-40fe-bc66-8fc5418325fb_001.data"
     
     ' Print empty line
     Debug.Print
@@ -50,8 +50,7 @@ Sub Main()
     
     Dim x As Integer
     For x = 1 To TestAttempts
-        'Debug.Print "TestAttempts: " & x
-        Call ReadFile_AllText
+        Call CallByName(FileTests, "ReadFile_AllText", VbMethod)
     Next
     
     stopwatch = TimerEx - stopwatch
