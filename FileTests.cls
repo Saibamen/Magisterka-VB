@@ -16,23 +16,37 @@ Option Explicit
 Public FilePath As String
 
 Public Function ReadFile_AllText()
+    Dim returnVar As String
+    
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim returnVar As String
     Dim x As Integer
     For x = 1 To MainModule.Iterations
-        returnVar = ReadAllText()
+        Dim fileSystemObject As New fileSystemObject
+        Dim textStream As textStream
+    
+        Set textStream = fileSystemObject.OpenTextFile(FilePath)
+    
+        returnVar = textStream.ReadAll()
     Next
 
     stopwatch = TimerEx - stopwatch
     Call PrintElapsedTime("ReadFile_AllText", stopwatch)
 End Function
 
-Private Function ReadAllText() As String
-    Dim fileSystemObject As New fileSystemObject
-    Dim textStream As textStream
+' TODO
+Public Function ReadFile_ByLine()
+    Dim returnVar As String
+    
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
 
-    Set textStream = fileSystemObject.OpenTextFile(FilePath)
-    ReadAllText = textStream.ReadAll
+    Dim x As Integer
+    For x = 1 To MainModule.Iterations
+        returnVar = ReadAllText()
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("ReadFile_ByLine", stopwatch)
 End Function
