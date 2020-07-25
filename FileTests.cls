@@ -13,30 +13,53 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-Public FilePath As String
+Public BaseDirectory As String
+Public TestFilesDirectory As String
+Public ReadTestFile As String
 
-Public Function ReadFile_AllText()
+Public TestFilePrefix As String
+Public TestFileExtension As String
+
+Public Sub DeleteTestFiles()
+    ' Create directory if not exist
+    If Dir(TestFilesDirectory, vbDirectory) = "" Then
+        MkDir TestFilesDirectory
+        Exit Sub
+    End If
+    
+    Debug.Print "Deleting test files..."
+    
+    If Dir(TestFilesDirectory & "\*") <> "" Then
+        Kill TestFilesDirectory & "\*"
+    End If
+    
+    If Dir(TestFilesDirectory & "\CopyDirectory\*") <> "" Then
+        Kill TestFilesDirectory & "\CopyDirectory\*"
+    End If
+End Sub
+
+Public Sub ReadFile_AllText()
     Dim returnVar As String
     
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim x As Integer
-    For x = 1 To MainModule.Iterations
+    Dim i As Integer
+    For i = 1 To MainModule.Iterations
         Dim fileSystemObject As New fileSystemObject
         Dim textStream As textStream
     
-        Set textStream = fileSystemObject.OpenTextFile(FilePath)
+        Set textStream = fileSystemObject.OpenTextFile(ReadTestFile)
     
         returnVar = textStream.ReadAll()
     Next
 
     stopwatch = TimerEx - stopwatch
     Call PrintElapsedTime("ReadFile_AllText", stopwatch)
-End Function
+End Sub
 
 ' NOTE: Decreased to 25 iterations
-Public Function ReadFile_ByLine()
+Public Sub ReadFile_ByLine()
     Dim testIterations As Integer
     testIterations = 25
     Dim returnVar As String
@@ -44,18 +67,50 @@ Public Function ReadFile_ByLine()
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim x As Integer
-    For x = 1 To testIterations
+    Dim i As Integer
+    For i = 1 To testIterations
         Dim line As String
         
-        Open FilePath For Input As #1
-        Do While Not EOF(1)
-            Line Input #1, line
-            returnVar = returnVar + line
-        Loop
+        Open ReadTestFile For Input As #1
+            Do While Not EOF(1)
+                Line Input #1, line
+                returnVar = returnVar + line
+            Loop
         Close #1
     Next
 
     stopwatch = TimerEx - stopwatch
     Call PrintElapsedTime("ReadFile_ByLine", stopwatch, testIterations)
-End Function
+End Sub
+
+Private Sub CreateTestFiles()
+    Call DeleteTestFiles
+    
+    Debug.Print "Creating test files..."
+    
+    Dim testFileContent As String
+    
+    Dim fileSystemObject As New fileSystemObject
+    Dim textStream As textStream
+
+    Set textStream = fileSystemObject.OpenTextFile(ReadTestFile)
+
+    testFileContent = textStream.ReadAll()
+    
+    ' Create directory if not exist
+    If Dir(TestFilesDirectory, vbDirectory) = "" Then
+        MkDir TestFilesDirectory
+    End If
+    
+    Dim i As Integer
+    For i = 1 To MainModule.Iterations
+        Dim filename As String
+        filename = TestFilePrefix & i & TestFileExtension
+        Dim fileNumber As Integer
+        fileNumber = FreeFile
+        
+        Open TestFilesDirectory & "\" & filename For Output As fileNumber
+            Print #fileNumber, testFileContent
+        Close fileNumber
+    Next
+End Sub

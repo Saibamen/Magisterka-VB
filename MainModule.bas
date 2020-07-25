@@ -39,7 +39,12 @@ Sub Main()
     TestAttempts = 10
     Iterations = 1000
     ' Change path for your user
-    FileTests.FilePath = "C:\Users\Adam\source\repos\magisterka\Magisterka-VB\da51f72f-7804-40fe-bc66-8fc5418325fb_001.data"
+    FileTests.BaseDirectory = "C:\Users\Adam\source\repos\magisterka\Magisterka-VB\"
+    FileTests.TestFilesDirectory = FileTests.BaseDirectory & "TestFiles"
+    FileTests.ReadTestFile = FileTests.BaseDirectory & "da51f72f-7804-40fe-bc66-8fc5418325fb_001.data"
+    
+    FileTests.TestFilePrefix = "testFile_"
+    FileTests.TestFileExtension = ".txt"
     
     Debug.Print vbNewLine
     
@@ -49,9 +54,15 @@ Sub Main()
     
     ' FileTests
     Debug.Print "FileTests" & vbNewLine
+    Call CallByName(FileTests, "DeleteTestFiles", VbMethod)
 
     Call RunTestsFor(FileTests, "ReadFile_AllText")
     Call RunTestsFor(FileTests, "ReadFile_ByLine")
+    'Call RunTestsFor(FileTests, "WriteFile_AllText")
+    'Call RunTestsFor(FileTests, "WriteFile_ByLine")
+    'Call RunTestsFor(FileTests, "RenameFiles")
+    'Call RunTestsFor(FileTests, "CopyFiles")
+    'Call RunTestsFor(FileTests, "DeleteFiles")
     
     Debug.Print vbNewLine
     
@@ -84,8 +95,8 @@ Public Sub PrintElapsedTime(testName As String, stopwatch As Variant, Optional t
 End Sub
 
 Public Sub RunTestsFor(staticClass As Variant, functionName As String)
-    Dim x As Integer
-    For x = 1 To TestAttempts
+    Dim i As Integer
+    For i = 1 To TestAttempts
         Call CallByName(staticClass, functionName, VbMethod)
     Next
     
