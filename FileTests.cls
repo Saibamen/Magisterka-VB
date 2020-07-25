@@ -35,18 +35,27 @@ Public Function ReadFile_AllText()
     Call PrintElapsedTime("ReadFile_AllText", stopwatch)
 End Function
 
-' TODO
+' NOTE: Decreased to 25 iterations
 Public Function ReadFile_ByLine()
+    Dim testIterations As Integer
+    testIterations = 25
     Dim returnVar As String
     
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
     Dim x As Integer
-    For x = 1 To MainModule.Iterations
-        returnVar = ReadAllText()
+    For x = 1 To testIterations
+        Dim line As String
+        
+        Open FilePath For Input As #1
+        Do While Not EOF(1)
+            Line Input #1, line
+            returnVar = returnVar + line
+        Loop
+        Close #1
     Next
 
     stopwatch = TimerEx - stopwatch
-    Call PrintElapsedTime("ReadFile_ByLine", stopwatch)
+    Call PrintElapsedTime("ReadFile_ByLine", stopwatch, testIterations)
 End Function

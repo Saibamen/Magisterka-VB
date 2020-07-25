@@ -11,15 +11,15 @@ Private Declare Function QueryPerformanceCounter Lib "kernel32" ( _
   lpPerformanceCount As Currency) As Long
 
 Public Function TimerEx() As Currency
-   Static nFreq As Currency
+    Static nFreq As Currency
 
-   If nFreq = 0 Then
+    If nFreq = 0 Then
         QueryPerformanceFrequency nFreq
-   End If
+    End If
 
-   Dim nTimer As Currency
-   QueryPerformanceCounter nTimer
-   TimerEx = nTimer / nFreq
+    Dim nTimer As Currency
+    QueryPerformanceCounter nTimer
+    TimerEx = nTimer / nFreq
 End Function
 
 Sub Main()
@@ -51,6 +51,7 @@ Sub Main()
     Debug.Print "FileTests" & vbNewLine
 
     Call RunTestsFor(FileTests, "ReadFile_AllText")
+    Call RunTestsFor(FileTests, "ReadFile_ByLine")
     
     Debug.Print vbNewLine
     
@@ -73,9 +74,13 @@ Sub Main()
     'MsgBox stopwatch & " seconds", 0, "Main"
 End Sub
 
-Public Sub PrintElapsedTime(testName As String, stopwatch As Variant)
-   Debug.Print testName & " N = " & Iterations & " = " & stopwatch & " seconds"
-   'MsgBox stopwatch & " seconds", 0, testName
+Public Sub PrintElapsedTime(testName As String, stopwatch As Variant, Optional testIterations As Integer)
+    If testIterations = 0 Then
+        testIterations = Iterations
+    End If
+
+    Debug.Print testName & " N = " & testIterations & " = " & stopwatch & " seconds"
+    'MsgBox stopwatch & " seconds", 0, testName
 End Sub
 
 Public Sub RunTestsFor(staticClass As Variant, functionName As String)
