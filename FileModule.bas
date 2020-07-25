@@ -7,16 +7,15 @@ Public Function ReadFile_AllText()
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim Text As String
+    Dim returnVar As String
     Dim x As Integer
     For x = 1 To MainModule.Iterations
         'Debug.Print "Iterations: " & x
-        Text = ReadFileIntoString()
+        returnVar = ReadFileIntoString()
     Next
     
     stopwatch = TimerEx - stopwatch
-    Debug.Print "ReadFile_AllText: " & stopwatch
-    'MsgBox stopwatch & " seconds", 0, "ReadFile_AllText"
+    Call PrintElapsedTime("ReadFile_AllText", stopwatch)
 End Function
 
 Public Function ReadFileIntoString() As String

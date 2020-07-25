@@ -10,8 +10,6 @@ Private Declare Function QueryPerformanceFrequency Lib "kernel32" ( _
 Private Declare Function QueryPerformanceCounter Lib "kernel32" ( _
   lpPerformanceCount As Currency) As Long
 
-Private Declare Function GetTickCount Lib "kernel32" () As Long
-
 Public Function TimerEx() As Currency
    Static nFreq As Currency
 
@@ -46,16 +44,9 @@ Sub Main()
     ' Print empty line
     Debug.Print
     
-    'Dim stopwatch As Variant
-    ' Not useGetTickCount
-    'Dim lngTime As Long
-    
     ' Use QueryPerformanceCounter instead of the more inaccurate GetTickCount
-    'stopwatch = TimerEx
-    ' Not useGetTickCount
-    'lngTime = GetTickCount()
-    
-    ' Measure
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
     
     Dim x As Integer
     For x = 1 To TestAttempts
@@ -63,11 +54,12 @@ Sub Main()
         Call ReadFile_AllText
     Next
     
-    'lngTime = GetTickCount - lngTime
-    'stopwatch = TimerEx - stopwatch
-    'Debug.Print "Main: " & stopwatch
+    stopwatch = TimerEx - stopwatch
+    Debug.Print "All tests executed in " & stopwatch & " seconds"
     'MsgBox stopwatch & " seconds", 0, "Main"
-    ' Not useGetTickCount
-    'Debug.Print "Execution took " & CStr(lngTime); " ms"
 End Sub
 
+Public Sub PrintElapsedTime(testName As String, stopwatch As Variant)
+   Debug.Print testName & " N = " & Iterations & " = " & stopwatch & " seconds"
+   MsgBox stopwatch & " seconds", 0, testName
+End Sub
