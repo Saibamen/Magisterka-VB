@@ -40,7 +40,8 @@ Sub Main()
     
     TestAttempts = 10
     Iterations = 1000
-    FileModule.FilePath = "C:\Users\Saibamen\source\repos\Magisterka\VB6\da51f72f-7804-40fe-bc66-8fc5418325fb_001.data"
+    ' Change path for your user
+    FileModule.FilePath = "C:\Users\Adam\source\repos\magisterka\Magisterka-VB\da51f72f-7804-40fe-bc66-8fc5418325fb_001.data"
     
     ' Print empty line
     Debug.Print
