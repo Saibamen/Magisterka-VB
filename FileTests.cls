@@ -22,17 +22,17 @@ Public Function ReadFile_AllText()
     Dim returnVar As String
     Dim x As Integer
     For x = 1 To MainModule.Iterations
-        returnVar = ReadFileIntoString()
+        returnVar = ReadAllText()
     Next
 
     stopwatch = TimerEx - stopwatch
     Call PrintElapsedTime("ReadFile_AllText", stopwatch)
 End Function
 
-Public Function ReadFileIntoString() As String
-    Dim fso As New FileSystemObject
-    Dim ts As TextStream
+Private Function ReadAllText() As String
+    Dim fileSystemObject As New fileSystemObject
+    Dim textStream As textStream
 
-    Set ts = fso.OpenTextFile(FilePath)
-    ReadFileIntoString = ts.ReadAll
+    Set textStream = fileSystemObject.OpenTextFile(FilePath)
+    ReadAllText = textStream.ReadAll
 End Function
