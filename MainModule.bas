@@ -41,14 +41,15 @@ Sub Main()
     ' Change path for your user
     FileTests.FilePath = "C:\Users\Adam\source\repos\magisterka\Magisterka-VB\da51f72f-7804-40fe-bc66-8fc5418325fb_001.data"
     
-    ' Print empty line
-    Debug.Print
+    Debug.Print vbNewLine
     
     ' Use QueryPerformanceCounter instead of the more inaccurate GetTickCount
     Dim stopwatch As Variant
     stopwatch = TimerEx
     
     ' FileTests
+    Debug.Print "FileTests" & vbNewLine
+
     Call RunTestsFor(FileTests, "ReadFile_AllText")
     
     stopwatch = TimerEx - stopwatch
@@ -58,7 +59,7 @@ End Sub
 
 Public Sub PrintElapsedTime(testName As String, stopwatch As Variant)
    Debug.Print testName & " N = " & Iterations & " = " & stopwatch & " seconds"
-   MsgBox stopwatch & " seconds", 0, testName
+   'MsgBox stopwatch & " seconds", 0, testName
 End Sub
 
 Public Sub RunTestsFor(staticClass As Variant, functionName As String)
@@ -67,6 +68,5 @@ Public Sub RunTestsFor(staticClass As Variant, functionName As String)
         Call CallByName(staticClass, functionName, VbMethod)
     Next
     
-    ' Print empty line
-    Debug.Print
+    Debug.Print vbNewLine
 End Sub
