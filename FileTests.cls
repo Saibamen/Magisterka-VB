@@ -70,13 +70,15 @@ Public Sub ReadFile_ByLine()
     Dim i As Integer
     For i = 1 To testIterations
         Dim line As String
+        Dim fileNumber As Integer
+        fileNumber = FreeFile
         
-        Open ReadTestFile For Input As #1
+        Open ReadTestFile For Input As fileNumber
             Do While Not EOF(1)
-                Line Input #1, line
+                Line Input #fileNumber, line
                 returnVar = returnVar + line
             Loop
-        Close #1
+        Close fileNumber
     Next
 
     stopwatch = TimerEx - stopwatch
@@ -106,6 +108,81 @@ Public Sub WriteFile_AllText()
 
     stopwatch = TimerEx - stopwatch
     Call PrintElapsedTime("WriteFile_AllText", stopwatch)
+End Sub
+
+Public Sub WriteFile_ByLine()
+    Call DeleteTestFiles
+
+    Dim testFileContent As String
+    testFileContent = ReadTestFileContent()
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Integer
+    For i = 1 To MainModule.Iterations
+        ' TODO WriteFile_ByLine
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("WriteFile_ByLine", stopwatch)
+End Sub
+
+Public Sub RenameFiles()
+    Call CreateTestFiles
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Integer
+    For i = 1 To MainModule.Iterations
+        Dim filename As String
+        Dim newFilename As String
+        filename = TestFilesDirectory & "\" & TestFilePrefix & i & TestFileExtension
+        newFilename = TestFilesDirectory & "\" & TestFilePrefix & i & "_renamed" & TestFileExtension
+        
+        Name filename As newFilename
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("RenameFiles", stopwatch)
+End Sub
+
+Public Sub CopyFiles()
+    Call CreateTestFiles
+
+    Dim copyDirectory As String
+    copyDirectory = TestFilesDirectory & "\CopyDirectory"
+    ' Create directory if not exist
+    If Dir(copyDirectory, vbDirectory) = "" Then
+        MkDir copyDirectory
+    End If
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Integer
+    For i = 1 To MainModule.Iterations
+        FileCopy TestFilesDirectory & "\" & TestFilePrefix & i & TestFileExtension, copyDirectory & "\" & TestFilePrefix & i & "_copied" & TestFileExtension
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("CopyFiles", stopwatch)
+End Sub
+
+Public Sub DeleteFiles()
+    Call CreateTestFiles
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Integer
+    For i = 1 To MainModule.Iterations
+        Kill TestFilesDirectory & "\" & TestFilePrefix & i & TestFileExtension
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("DeleteFiles", stopwatch)
 End Sub
 
 Private Sub CreateTestFiles()
