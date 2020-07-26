@@ -220,4 +220,5 @@ Private Function ReadTestFileContent() As String
     Set textStream = fileSystemObject.OpenTextFile(ReadTestFile)
 
     ReadTestFileContent = textStream.ReadAll()
+    textStream.Close
 End Function
