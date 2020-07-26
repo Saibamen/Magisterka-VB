@@ -49,7 +49,7 @@ Public Sub ReadFile_AllText()
         Dim fileSystemObject As New fileSystemObject
         Dim textStream As textStream
     
-        Set textStream = fileSystemObject.OpenTextFile(ReadTestFile)
+        Set textStream = fileSystemObject.OpenTextFile(ReadTestFile, ForReading)
     
         returnVar = textStream.ReadAll()
     Next
@@ -113,15 +113,22 @@ End Sub
 Public Sub WriteFile_ByLine()
     Call DeleteTestFiles
 
-    Dim testFileContent As String
-    testFileContent = ReadTestFileContent()
+    Dim testFileLines() As String
+    testFileLines = ReadTestFileContentAsArray()
 
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
     Dim i As Integer
     For i = 1 To MainModule.Iterations
-        ' TODO WriteFile_ByLine
+        Dim filename As String
+        filename = TestFilePrefix & i & "_WriteAllLines" & TestFileExtension
+        Dim fileNumber As Integer
+        fileNumber = FreeFile
+        
+        Open TestFilesDirectory & "\" & filename For Binary As fileNumber
+            Put #fileNumber, 1, testFileLines
+        Close fileNumber
     Next
 
     stopwatch = TimerEx - stopwatch
@@ -217,8 +224,29 @@ Private Function ReadTestFileContent() As String
     Dim fileSystemObject As New fileSystemObject
     Dim textStream As textStream
 
-    Set textStream = fileSystemObject.OpenTextFile(ReadTestFile)
+    Set textStream = fileSystemObject.OpenTextFile(ReadTestFile, ForReading)
 
     ReadTestFileContent = textStream.ReadAll()
     textStream.Close
+End Function
+
+Private Function ReadTestFileContentAsArray() As String()
+    Dim fileSystemObject As New fileSystemObject
+    Dim textStream As textStream
+    
+    Dim fileArray() As String
+    Dim arraySize As Integer
+    arraySize = 1
+
+    Set textStream = fileSystemObject.OpenTextFile(ReadTestFile, ForReading)
+
+    Do Until textStream.AtEndOfStream
+        ' Resize array and keep existing data
+        ReDim Preserve fileArray(arraySize)
+        fileArray(arraySize) = textStream.ReadLine
+        arraySize = arraySize + 1
+    Loop
+    
+    textStream.Close
+    ReadTestFileContentAsArray = fileArray
 End Function
