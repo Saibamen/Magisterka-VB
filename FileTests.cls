@@ -84,6 +84,8 @@ Public Sub ReadFile_ByLine()
 End Sub
 
 Public Sub WriteFile_AllText()
+    Call DeleteTestFiles
+
     Dim testFileContent As String
     testFileContent = ReadTestFileContent()
 
@@ -103,9 +105,7 @@ Public Sub WriteFile_AllText()
     Next
 
     stopwatch = TimerEx - stopwatch
-    Call PrintElapsedTime("ReadFile_AllText", stopwatch)
-    
-    Call DeleteTestFiles
+    Call PrintElapsedTime("WriteFile_AllText", stopwatch)
 End Sub
 
 Private Sub CreateTestFiles()
@@ -132,6 +132,8 @@ Private Sub CreateTestFiles()
             Print #fileNumber, testFileContent
         Close fileNumber
     Next
+    
+    Debug.Print vbNewLine
 End Sub
 
 Private Function ReadTestFileContent() As String
