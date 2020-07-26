@@ -25,13 +25,6 @@ End Function
 Sub Main()
     TestAttempts = 10
     Iterations = 1000
-    ' Change path for your user
-    FileTests.BaseDirectory = "C:\Users\Adam\source\repos\magisterka\Magisterka-VB\"
-    FileTests.TestFilesDirectory = FileTests.BaseDirectory & "TestFiles"
-    FileTests.ReadTestFile = FileTests.BaseDirectory & "da51f72f-7804-40fe-bc66-8fc5418325fb_001.data"
-    
-    FileTests.TestFilePrefix = "testFile_"
-    FileTests.TestFileExtension = ".txt"
     
     Debug.Print vbNewLine
     
@@ -41,6 +34,15 @@ Sub Main()
     
     ' FileTests
     Debug.Print "FileTests" & vbNewLine
+    
+    ' Change path for your user
+    FileTests.BaseDirectory = "C:\Users\Adam\source\repos\magisterka\Magisterka-VB\"
+    FileTests.TestFilesDirectory = FileTests.BaseDirectory & "TestFiles"
+    FileTests.ReadTestFile = FileTests.BaseDirectory & "da51f72f-7804-40fe-bc66-8fc5418325fb_001.data"
+    
+    FileTests.TestFilePrefix = "testFile_"
+    FileTests.TestFileExtension = ".txt"
+    
     Call CallByName(FileTests, "DeleteTestFiles", VbMethod)
 
     Call RunTestsFor(FileTests, "ReadFile_AllText")

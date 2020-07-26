@@ -74,7 +74,7 @@ Public Sub ReadFile_ByLine()
         fileNumber = FreeFile
         
         Open ReadTestFile For Input As fileNumber
-            Do While Not EOF(1)
+            Do While Not EOF(fileNumber)
                 Line Input #fileNumber, line
                 returnVar = returnVar + line
             Loop
