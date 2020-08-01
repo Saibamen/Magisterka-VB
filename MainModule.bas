@@ -67,7 +67,8 @@ Sub Main()
     ' StringTests
     Call LogText("StringTests" & vbNewLine)
     
-    StringTests.TestString = "ThisIsExample123StringToTestStringOperationsWoSpacThisIsExample123StringToTestStringOperationsWoSpac"
+    ' 500 characters
+    StringTests.TestString = "ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTextToSearcherationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@"
 
     Call RunTestsFor(StringTests, "AscTest")
     Call RunTestsFor(StringTests, "MidTest")

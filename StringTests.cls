@@ -99,7 +99,8 @@ Public Sub TrimTest()
     Dim i As Integer
     For i = 1 To testIterations
         Dim textToTrim As String
-        textToTrim = "      ThisIsExample123StringToTestStringOperationsThisIsExample123StringToTestStringOperations      "
+        ' 520 characters, 10 whitespaces at beginning and end
+        textToTrim = "          ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTextToSearcherationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@          "
         returnVar = Trim(TestString)
     Next
 
