@@ -14,15 +14,15 @@ Private Declare Function QueryPerformanceCounter Lib "kernel32" ( _
   lpPerformanceCount As Currency) As Long
 
 Public Function TimerEx() As Currency
-    Static nFreq As Currency
+    Static ticksPerSecond As Currency
 
-    If nFreq = 0 Then
-        QueryPerformanceFrequency nFreq
+    If ticksPerSecond = 0 Then
+        QueryPerformanceFrequency ticksPerSecond
     End If
 
     Dim nTimer As Currency
     QueryPerformanceCounter nTimer
-    TimerEx = nTimer / nFreq
+    TimerEx = nTimer / ticksPerSecond
 End Function
 
 Sub Main()
@@ -79,17 +79,25 @@ Sub Main()
     'Call LogText()
     
     stopwatch = TimerEx - stopwatch
-    Call LogText("All tests executed in " & stopwatch & " seconds")
+    Call LogText("All tests executed in " & stopwatch / 60 & " minutes")
     Debug.Print "Log file saved in " & BaseDirectory & LogFilename
-    MsgBox "All tests executed in " & stopwatch & " seconds" & vbNewLine & "Log file saved in " & BaseDirectory & LogFilename, 0, "Main"
+    MsgBox "All tests executed in " & stopwatch / 60 & " minutes" & vbNewLine & "Log file saved in " & BaseDirectory & LogFilename, 0, "Main"
 End Sub
 
-Public Sub PrintElapsedTime(testName As String, stopwatch As Variant, Optional testIterations As Integer)
+Public Sub PrintElapsedTime(testName As String, stopwatch As Variant, Optional testIterations As Integer, Optional printMilliseconds As Boolean)
     If testIterations = 0 Then
         testIterations = Iterations
     End If
+    
+    Dim timeUnit As String
+    timeUnit = " seconds"
+    
+    If printMilliseconds Then
+        stopwatch = stopwatch * 1000
+        timeUnit = " milliseconds"
+    End If
 
-    Call LogText(testName & " N = " & testIterations & " = " & stopwatch & " seconds")
+    Call LogText(testName & " N = " & testIterations & " = " & stopwatch & timeUnit)
 End Sub
 
 Private Sub RunTestsFor(staticClass As Variant, functionName As String)
