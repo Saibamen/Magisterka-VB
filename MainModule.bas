@@ -37,7 +37,7 @@ Sub Main()
         Kill BaseDirectory & LogFilename
     End If
     
-    Call LogText(vbNewLine)
+    Debug.Print
     
     ' Use QueryPerformanceCounter instead of the more inaccurate GetTickCount
     Dim stopwatch As Variant
@@ -62,21 +62,21 @@ Sub Main()
     Call RunTestsFor(FileTests, "CopyFiles")
     Call RunTestsFor(FileTests, "DeleteFiles")
     
-    Call LogText(vbNewLine)
+    Call LogText
     
     ' StringTests
     'Call LogText("StringTests" & vbNewLine)
 
     '
     
-    'Call LogText(vbNewLine)
+    'Call LogText()
     
     ' NumberTests
     'Call LogText("NumberTests" & vbNewLine)
 
     '
     
-    'Call LogText(vbNewLine)
+    'Call LogText()
     
     stopwatch = TimerEx - stopwatch
     Call LogText("All tests executed in " & stopwatch & " seconds")
@@ -97,15 +97,11 @@ Private Sub RunTestsFor(staticClass As Variant, functionName As String)
         Call CallByName(staticClass, functionName, VbMethod)
     Next
     
-    Call LogText(vbNewLine)
+    Call LogText
 End Sub
 
-Public Sub LogText(text As String)
+Public Sub LogText(Optional text As String)
     Debug.Print text
-    
-    If text = vbNewLine Then
-        Exit Sub
-    End If
     
     Dim fileNumber As Integer
     fileNumber = FreeFile

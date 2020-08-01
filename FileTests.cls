@@ -221,7 +221,7 @@ Private Sub CreateTestFiles()
         Close fileNumber
     Next
     
-    Call LogText(vbNewLine)
+    Call LogText
 End Sub
 
 Private Function ReadTestFileContent() As String
