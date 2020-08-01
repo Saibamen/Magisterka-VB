@@ -6,6 +6,7 @@ Class=FileTests; FileTests.cls
 Startup="Sub Main"
 HelpFile=""
 Title="Magisterka_VB6"
+ExeName32="Magisterka_VB6.exe"
 Command32=""
 Name="Magisterka_VB6"
 HelpContextID="0"
