@@ -118,6 +118,8 @@ Public Sub WriteFile_ByLine()
 
     Dim stopwatch As Variant
     stopwatch = TimerEx
+    
+    ' TODO - check using fileSystemObject
 
     Dim i As Integer
     For i = 1 To MainModule.Iterations
@@ -126,8 +128,11 @@ Public Sub WriteFile_ByLine()
         Dim fileNumber As Integer
         fileNumber = FreeFile
         
-        Open TestFilesDirectory & "\" & filename For Binary As fileNumber
-            Put #fileNumber, 1, testFileLines
+        Open TestFilesDirectory & "\" & filename For Output As fileNumber
+            Dim n As Integer
+            For n = 1 To UBound(testFileLines)
+                Print #fileNumber, testFileLines(n)
+            Next
         Close fileNumber
     Next
 

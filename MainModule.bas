@@ -74,7 +74,7 @@ Sub Main()
     'MsgBox stopwatch & " seconds", 0, "Main"
 End Sub
 
-Public Sub PrintElapsedTime(testName As String, stopwatch As Variant, Optional testIterations As Integer)
+Private Sub PrintElapsedTime(testName As String, stopwatch As Variant, Optional testIterations As Integer)
     If testIterations = 0 Then
         testIterations = Iterations
     End If
@@ -83,7 +83,7 @@ Public Sub PrintElapsedTime(testName As String, stopwatch As Variant, Optional t
     'MsgBox stopwatch & " seconds", 0, testName
 End Sub
 
-Public Sub RunTestsFor(staticClass As Variant, functionName As String)
+Private Sub RunTestsFor(staticClass As Variant, functionName As String)
     Dim i As Integer
     For i = 1 To TestAttempts
         Call CallByName(staticClass, functionName, VbMethod)
