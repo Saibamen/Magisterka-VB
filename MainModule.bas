@@ -1,8 +1,8 @@
 Attribute VB_Name = "MainModule"
 Option Explicit
 
-Public TestAttempts As Integer
-Private Iterations As Integer
+Public Iterations As Integer
+Private TestRuns As Integer
 
 Private BaseDirectory As String
 Private LogFilename As String
@@ -26,8 +26,8 @@ Public Function TimerEx() As Currency
 End Function
 
 Sub Main()
-    TestAttempts = 10
     Iterations = 1000
+    TestRuns = 10
     ' Change path for your user
     BaseDirectory = "C:\Users\Adam\source\repos\magisterka\Magisterka-VB\"
     LogFilename = "TestsOutputVB6.log"
@@ -93,7 +93,7 @@ End Sub
 
 Private Sub RunTestsFor(staticClass As Variant, functionName As String)
     Dim i As Integer
-    For i = 1 To TestAttempts
+    For i = 1 To TestRuns
         Call CallByName(staticClass, functionName, VbMethod)
     Next
     
