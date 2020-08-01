@@ -10,5 +10,5 @@
 *.tmp
 
 TestFiles/
-TestsOutput.log
+TestsOutputVB6.log
 Magisterka_VB6.exe

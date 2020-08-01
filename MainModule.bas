@@ -2,7 +2,7 @@ Attribute VB_Name = "MainModule"
 Option Explicit
 
 Public TestAttempts As Integer
-Public Iterations As Integer
+Private Iterations As Integer
 
 Private BaseDirectory As String
 Private LogFilename As String
@@ -30,7 +30,7 @@ Sub Main()
     Iterations = 1000
     ' Change path for your user
     BaseDirectory = "C:\Users\Adam\source\repos\magisterka\Magisterka-VB\"
-    LogFilename = "TestsOutput.log"
+    LogFilename = "TestsOutputVB6.log"
     
     ' Delete previous log file if exist
     If Dir(BaseDirectory & LogFilename) <> "" Then
