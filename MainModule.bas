@@ -65,9 +65,18 @@ Sub Main()
     Call LogText
     
     ' StringTests
-    'Call LogText("StringTests" & vbNewLine)
+    Call LogText("StringTests" & vbNewLine)
+    
+    StringTests.TestString = "ThisIsExample123StringToTestStringOperationsWoSpacThisIsExample123StringToTestStringOperationsWoSpac"
 
-    '
+    Call RunTestsFor(StringTests, "AscTest")
+    Call RunTestsFor(StringTests, "MidTest")
+    Call RunTestsFor(StringTests, "LeftTest")
+    Call RunTestsFor(StringTests, "RightTest")
+    Call RunTestsFor(StringTests, "TrimTest")
+    Call RunTestsFor(StringTests, "LenTest")
+    Call RunTestsFor(StringTests, "LCaseTest")
+    Call RunTestsFor(StringTests, "UCaseTest")
     
     'Call LogText()
     

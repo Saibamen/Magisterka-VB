@@ -14,12 +14,11 @@ Attribute VB_Exposed = False
 Option Explicit
 
 Public TestString As String
-Public TestStringWithoutSpaces As String
 
-' NOTE: Increased to 30000 iterations
+' NOTE: Increased to 32000 iterations. Time in milliseconds
 Public Sub AscTest()
     Dim testIterations As Integer
-    testIterations = 30000
+    testIterations = 32000
     Dim returnVar As Integer
 
     Dim stopwatch As Variant
@@ -27,9 +26,137 @@ Public Sub AscTest()
 
     Dim i As Integer
     For i = 1 To testIterations
-        returnVar = Asc(TestStringWithoutSpaces)
+        returnVar = Asc(TestString)
     Next
 
     stopwatch = TimerEx - stopwatch
     Call PrintElapsedTime("AscTest", stopwatch, testIterations, True)
+End Sub
+
+' NOTE: Increased to 32000 iterations. Time in milliseconds
+Public Sub MidTest()
+    Dim testIterations As Integer
+    testIterations = 32000
+    Dim returnVar As String
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Integer
+    For i = 1 To testIterations
+        returnVar = Mid(TestString, 20, 50)
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("MidTest", stopwatch, testIterations, True)
+End Sub
+
+' NOTE: Increased to 32000 iterations. Time in milliseconds
+Public Sub LeftTest()
+    Dim testIterations As Integer
+    testIterations = 32000
+    Dim returnVar As String
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Integer
+    For i = 1 To testIterations
+        returnVar = Left(TestString, 50)
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("LeftTest", stopwatch, testIterations, True)
+End Sub
+
+' NOTE: Increased to 32000 iterations. Time in milliseconds
+Public Sub RightTest()
+    Dim testIterations As Integer
+    testIterations = 32000
+    Dim returnVar As String
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Integer
+    For i = 1 To testIterations
+        returnVar = Right(TestString, 50)
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("RightTest", stopwatch, testIterations, True)
+End Sub
+
+' NOTE: Increased to 32000 iterations. Time in milliseconds
+Public Sub TrimTest()
+    Dim testIterations As Integer
+    testIterations = 32000
+    Dim returnVar As String
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Integer
+    For i = 1 To testIterations
+        Dim textToTrim As String
+        textToTrim = "      ThisIsExample123StringToTestStringOperationsThisIsExample123StringToTestStringOperations      "
+        returnVar = Trim(TestString)
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("TrimTest", stopwatch, testIterations, True)
+End Sub
+
+' NOTE: Increased to 32000 iterations. Time in milliseconds
+Public Sub LenTest()
+    Dim testIterations As Integer
+    testIterations = 32000
+    Dim returnVar As String
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Integer
+    For i = 1 To testIterations
+        returnVar = Len(TestString)
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("LenTest", stopwatch, testIterations, True)
+End Sub
+
+' NOTE: Increased to 32000 iterations. Time in milliseconds
+Public Sub LCaseTest()
+    Dim testIterations As Integer
+    testIterations = 32000
+    Dim returnVar As String
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Integer
+    For i = 1 To testIterations
+        returnVar = LCase(TestString)
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("LCaseTest", stopwatch, testIterations, True)
+End Sub
+
+' NOTE: Increased to 32000 iterations. Time in milliseconds
+Public Sub UCaseTest()
+    Dim testIterations As Integer
+    testIterations = 32000
+    Dim returnVar As String
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Integer
+    For i = 1 To testIterations
+        returnVar = UCase(TestString)
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("UCaseTest", stopwatch, testIterations, True)
 End Sub
