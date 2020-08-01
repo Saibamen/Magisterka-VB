@@ -10,3 +10,5 @@
 *.tmp
 
 TestFiles/
+TestsOutput.log
+Magisterka_VB6.exe

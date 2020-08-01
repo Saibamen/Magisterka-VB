@@ -13,7 +13,6 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-Public BaseDirectory As String
 Public TestFilesDirectory As String
 Public ReadTestFile As String
 
@@ -27,7 +26,7 @@ Public Sub DeleteTestFiles()
         Exit Sub
     End If
     
-    Debug.Print "Deleting test files..."
+    Call LogText("Deleting test files...")
     
     If Dir(TestFilesDirectory & "\*") <> "" Then
         Kill TestFilesDirectory & "\*"
@@ -200,7 +199,7 @@ End Sub
 Private Sub CreateTestFiles()
     Call DeleteTestFiles
     
-    Debug.Print "Creating test files..."
+    Call LogText("Creating test files...")
     
     Dim testFileContent As String
     testFileContent = ReadTestFileContent()
@@ -222,7 +221,7 @@ Private Sub CreateTestFiles()
         Close fileNumber
     Next
     
-    Debug.Print vbNewLine
+    Call LogText(vbNewLine)
 End Sub
 
 Private Function ReadTestFileContent() As String
