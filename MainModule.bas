@@ -80,7 +80,7 @@ Sub Main()
     
     stopwatch = TimerEx - stopwatch
     Call LogText("All tests executed in " & stopwatch & " seconds")
-    'MsgBox stopwatch & " seconds", 0, "Main"
+    Debug.Print "Log file saved in " & BaseDirectory & LogFilename
 End Sub
 
 Public Sub PrintElapsedTime(testName As String, stopwatch As Variant, Optional testIterations As Integer)
@@ -89,7 +89,6 @@ Public Sub PrintElapsedTime(testName As String, stopwatch As Variant, Optional t
     End If
 
     Call LogText(testName & " N = " & testIterations & " = " & stopwatch & " seconds")
-    'MsgBox stopwatch & " seconds", 0, testName
 End Sub
 
 Private Sub RunTestsFor(staticClass As Variant, functionName As String)
