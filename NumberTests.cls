@@ -31,7 +31,7 @@ Public Sub IntTest()
     Call PrintElapsedTime("IntTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 1000000 iterations
+' NOTE: Increased to 1000000 iterations. Time in milliseconds
 Public Sub RoundDecimalPlacesTest()
     Dim testIterations As Long
     testIterations = 1000000
@@ -42,9 +42,9 @@ Public Sub RoundDecimalPlacesTest()
 
     Dim i As Long
     For i = 1 To testIterations
-        returnVar = Format(32000.9876545569, "0.###")
+        returnVar = Round(32000.9876545569, 3)
     Next
 
     stopwatch = TimerEx - stopwatch
-    Call PrintElapsedTime("RoundDecimalPlacesTest", stopwatch, testIterations)
+    Call PrintElapsedTime("RoundDecimalPlacesTest", stopwatch, testIterations, True)
 End Sub
