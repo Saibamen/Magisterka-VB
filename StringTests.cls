@@ -198,5 +198,5 @@ Public Sub PadLeftTest()
     Next
 
     stopwatch = TimerEx - stopwatch
-    Call PrintElapsedTime("PadLeftTest", stopwatch, testIterations, True)
+    Call PrintElapsedTime("PadLeftTest", stopwatch, testIterations)
 End Sub
