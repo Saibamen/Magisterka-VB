@@ -67,6 +67,7 @@ Sub Main()
     ' StringTests
     Call LogText("StringTests" & vbNewLine)
     
+    StringTests.StringTestsIterations = 1000000
     ' 500 characters
     StringTests.TestString = "ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTextToSearcherationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@"
 
@@ -85,6 +86,8 @@ Sub Main()
     
     ' NumberTests
     Call LogText("NumberTests" & vbNewLine)
+    
+    NumberTests.NumberTestsIterations = 1000000
 
     Call RunTestsFor(NumberTests, "IntTest")
     Call RunTestsFor(NumberTests, "RoundDecimalPlacesTest")
