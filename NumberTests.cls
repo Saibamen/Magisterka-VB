@@ -13,10 +13,10 @@ Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
 
-' NOTE: Increased to 1000000 iterations. Time in milliseconds
+' NOTE: Increased to 2000000 iterations. Time in milliseconds
 Public Sub IntTest()
     Dim testIterations As Long
-    testIterations = 1000000
+    testIterations = 2000000
     Dim returnVar As Integer
 
     Dim stopwatch As Variant
@@ -31,10 +31,10 @@ Public Sub IntTest()
     Call PrintElapsedTime("IntTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 1000000 iterations. Time in milliseconds
+' NOTE: Increased to 2000000 iterations. Time in milliseconds
 Public Sub RoundDecimalPlacesTest()
     Dim testIterations As Long
-    testIterations = 1000000
+    testIterations = 2000000
     Dim returnVar As Double
 
     Dim stopwatch As Variant

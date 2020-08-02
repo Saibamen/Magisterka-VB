@@ -15,10 +15,10 @@ Option Explicit
 
 Public TestString As String
 
-' NOTE: Increased to 1000000 iterations. Time in milliseconds
+' NOTE: Increased to 2000000 iterations. Time in milliseconds
 Public Sub AscTest()
     Dim testIterations As Long
-    testIterations = 1000000
+    testIterations = 2000000
     Dim returnVar As Integer
 
     Dim stopwatch As Variant
@@ -33,10 +33,10 @@ Public Sub AscTest()
     Call PrintElapsedTime("AscTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 1000000 iterations. Time in milliseconds
+' NOTE: Increased to 2000000 iterations. Time in milliseconds
 Public Sub MidTest()
     Dim testIterations As Long
-    testIterations = 1000000
+    testIterations = 2000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
@@ -51,10 +51,10 @@ Public Sub MidTest()
     Call PrintElapsedTime("MidTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 1000000 iterations. Time in milliseconds
+' NOTE: Increased to 2000000 iterations. Time in milliseconds
 Public Sub LeftTest()
     Dim testIterations As Long
-    testIterations = 1000000
+    testIterations = 2000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
@@ -69,10 +69,10 @@ Public Sub LeftTest()
     Call PrintElapsedTime("LeftTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 1000000 iterations. Time in milliseconds
+' NOTE: Increased to 2000000 iterations. Time in milliseconds
 Public Sub RightTest()
     Dim testIterations As Long
-    testIterations = 1000000
+    testIterations = 2000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
@@ -87,10 +87,10 @@ Public Sub RightTest()
     Call PrintElapsedTime("RightTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 1000000 iterations. Time in milliseconds
+' NOTE: Increased to 2000000 iterations. Time in milliseconds
 Public Sub TrimTest()
     Dim testIterations As Long
-    testIterations = 1000000
+    testIterations = 2000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
@@ -108,10 +108,10 @@ Public Sub TrimTest()
     Call PrintElapsedTime("TrimTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 1000000 iterations. Time in milliseconds
+' NOTE: Increased to 2000000 iterations. Time in milliseconds
 Public Sub LenTest()
     Dim testIterations As Long
-    testIterations = 1000000
+    testIterations = 2000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
@@ -126,10 +126,10 @@ Public Sub LenTest()
     Call PrintElapsedTime("LenTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 1000000 iterations
+' NOTE: Increased to 2000000 iterations
 Public Sub LCaseTest()
     Dim testIterations As Long
-    testIterations = 1000000
+    testIterations = 2000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
@@ -144,10 +144,10 @@ Public Sub LCaseTest()
     Call PrintElapsedTime("LCaseTest", stopwatch, testIterations)
 End Sub
 
-' NOTE: Increased to 1000000 iterations
+' NOTE: Increased to 2000000 iterations
 Public Sub UCaseTest()
     Dim testIterations As Long
-    testIterations = 1000000
+    testIterations = 2000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
@@ -162,10 +162,10 @@ Public Sub UCaseTest()
     Call PrintElapsedTime("UCaseTest", stopwatch, testIterations)
 End Sub
 
-' NOTE: Increased to 1000000 iterations
+' NOTE: Increased to 2000000 iterations
 Public Sub ReplaceTest()
     Dim testIterations As Long
-    testIterations = 1000000
+    testIterations = 2000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
@@ -180,10 +180,10 @@ Public Sub ReplaceTest()
     Call PrintElapsedTime("ReplaceTest", stopwatch, testIterations)
 End Sub
 
-' NOTE: Increased to 1000000 iterations
+' NOTE: Increased to 2000000 iterations
 Public Sub PadLeftTest()
     Dim testIterations As Long
-    testIterations = 1000000
+    testIterations = 2000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
