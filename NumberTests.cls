@@ -31,7 +31,7 @@ Public Sub IntTest()
     Call PrintElapsedTime("IntTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 1000000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations
 Public Sub RoundDecimalPlacesTest()
     Dim testIterations As Long
     testIterations = 1000000

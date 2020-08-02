@@ -126,7 +126,7 @@ Public Sub LenTest()
     Call PrintElapsedTime("LenTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 1000000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations
 Public Sub LCaseTest()
     Dim testIterations As Long
     testIterations = 1000000
@@ -144,7 +144,7 @@ Public Sub LCaseTest()
     Call PrintElapsedTime("LCaseTest", stopwatch, testIterations)
 End Sub
 
-' NOTE: Increased to 1000000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations
 Public Sub UCaseTest()
     Dim testIterations As Long
     testIterations = 1000000
@@ -162,7 +162,7 @@ Public Sub UCaseTest()
     Call PrintElapsedTime("UCaseTest", stopwatch, testIterations)
 End Sub
 
-' NOTE: Increased to 1000000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations
 Public Sub ReplaceTest()
     Dim testIterations As Long
     testIterations = 1000000
@@ -180,7 +180,7 @@ Public Sub ReplaceTest()
     Call PrintElapsedTime("ReplaceTest", stopwatch, testIterations)
 End Sub
 
-' NOTE: Increased to 1000000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations
 Public Sub PadLeftTest()
     Dim testIterations As Long
     testIterations = 1000000
