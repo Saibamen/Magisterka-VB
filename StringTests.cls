@@ -15,16 +15,16 @@ Option Explicit
 
 Public TestString As String
 
-' NOTE: Increased to 32000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations. Time in milliseconds
 Public Sub AscTest()
-    Dim testIterations As Integer
-    testIterations = 32000
+    Dim testIterations As Long
+    testIterations = 1000000
     Dim returnVar As Integer
 
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To testIterations
         returnVar = Asc(TestString)
     Next
@@ -33,16 +33,16 @@ Public Sub AscTest()
     Call PrintElapsedTime("AscTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 32000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations. Time in milliseconds
 Public Sub MidTest()
-    Dim testIterations As Integer
-    testIterations = 32000
+    Dim testIterations As Long
+    testIterations = 1000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To testIterations
         returnVar = Mid(TestString, 20, 50)
     Next
@@ -51,16 +51,16 @@ Public Sub MidTest()
     Call PrintElapsedTime("MidTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 32000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations. Time in milliseconds
 Public Sub LeftTest()
-    Dim testIterations As Integer
-    testIterations = 32000
+    Dim testIterations As Long
+    testIterations = 1000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To testIterations
         returnVar = Left(TestString, 50)
     Next
@@ -69,16 +69,16 @@ Public Sub LeftTest()
     Call PrintElapsedTime("LeftTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 32000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations. Time in milliseconds
 Public Sub RightTest()
-    Dim testIterations As Integer
-    testIterations = 32000
+    Dim testIterations As Long
+    testIterations = 1000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To testIterations
         returnVar = Right(TestString, 50)
     Next
@@ -87,16 +87,16 @@ Public Sub RightTest()
     Call PrintElapsedTime("RightTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 32000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations. Time in milliseconds
 Public Sub TrimTest()
-    Dim testIterations As Integer
-    testIterations = 32000
+    Dim testIterations As Long
+    testIterations = 1000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To testIterations
         Dim textToTrim As String
         ' 520 characters, 10 whitespaces both at beginning and end
@@ -108,16 +108,16 @@ Public Sub TrimTest()
     Call PrintElapsedTime("TrimTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 32000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations. Time in milliseconds
 Public Sub LenTest()
-    Dim testIterations As Integer
-    testIterations = 32000
+    Dim testIterations As Long
+    testIterations = 1000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To testIterations
         returnVar = Len(TestString)
     Next
@@ -126,16 +126,16 @@ Public Sub LenTest()
     Call PrintElapsedTime("LenTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 32000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations. Time in milliseconds
 Public Sub LCaseTest()
-    Dim testIterations As Integer
-    testIterations = 32000
+    Dim testIterations As Long
+    testIterations = 1000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To testIterations
         returnVar = LCase(TestString)
     Next
@@ -144,16 +144,16 @@ Public Sub LCaseTest()
     Call PrintElapsedTime("LCaseTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 32000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations. Time in milliseconds
 Public Sub UCaseTest()
-    Dim testIterations As Integer
-    testIterations = 32000
+    Dim testIterations As Long
+    testIterations = 1000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To testIterations
         returnVar = UCase(TestString)
     Next
@@ -162,16 +162,16 @@ Public Sub UCaseTest()
     Call PrintElapsedTime("UCaseTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 32000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations. Time in milliseconds
 Public Sub ReplaceTest()
-    Dim testIterations As Integer
-    testIterations = 32000
+    Dim testIterations As Long
+    testIterations = 1000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To testIterations
         returnVar = Replace(TestString, "TextToSearch", "ChangedText1")
     Next
@@ -180,16 +180,16 @@ Public Sub ReplaceTest()
     Call PrintElapsedTime("ReplaceTest", stopwatch, testIterations, True)
 End Sub
 
-' NOTE: Increased to 32000 iterations. Time in milliseconds
+' NOTE: Increased to 1000000 iterations. Time in milliseconds
 Public Sub PadLeftTest()
-    Dim testIterations As Integer
-    testIterations = 32000
+    Dim testIterations As Long
+    testIterations = 1000000
     Dim returnVar As String
 
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To testIterations
         Dim missingWidth As Integer
         ' First number is total width we want to achieve like in C# PadLeft()

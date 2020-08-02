@@ -87,16 +87,19 @@ Sub Main()
     Call LogText("NumberTests" & vbNewLine)
 
     Call RunTestsFor(NumberTests, "IntTest")
+    Call RunTestsFor(NumberTests, "RoundDecimalPlacesTest")
     
     Call LogText
     
     stopwatch = TimerEx - stopwatch
-    Call LogText("All tests executed in " & stopwatch / 60 & " minutes")
+    Dim stopwatchMinutes As Variant
+    stopwatchMinutes = Format(stopwatch / 60, "0.000")
+    Call LogText("All tests executed in " & stopwatchMinutes & " minutes")
     Debug.Print "Log file saved in " & BaseDirectory & LogFilename
-    MsgBox "All tests executed in " & stopwatch / 60 & " minutes" & vbNewLine & "Log file saved in " & BaseDirectory & LogFilename, 0, "Main"
+    MsgBox "All tests executed in " & stopwatchMinutes & " minutes" & vbNewLine & "Log file saved in " & BaseDirectory & LogFilename, 0, "Main"
 End Sub
 
-Public Sub PrintElapsedTime(testName As String, stopwatch As Variant, Optional testIterations As Integer, Optional printMilliseconds As Boolean)
+Public Sub PrintElapsedTime(testName As String, stopwatch As Variant, Optional testIterations As Long, Optional printMilliseconds As Boolean)
     If testIterations = 0 Then
         testIterations = Iterations
     End If

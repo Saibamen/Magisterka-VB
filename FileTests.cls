@@ -43,7 +43,7 @@ Public Sub ReadFile_AllText()
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To MainModule.Iterations
         Dim fileSystemObject As New fileSystemObject
         Dim textStream As textStream
@@ -59,14 +59,14 @@ End Sub
 
 ' NOTE: Decreased to 25 iterations
 Public Sub ReadFile_ByLine()
-    Dim testIterations As Integer
+    Dim testIterations As Long
     testIterations = 25
     Dim returnVar As String
     
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To testIterations
         Dim line As String
         Dim fileNumber As Integer
@@ -93,7 +93,7 @@ Public Sub WriteFile_AllText()
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To MainModule.Iterations
         Dim filename As String
         filename = TestFilePrefix & i & "_WriteAllText" & TestFileExtension
@@ -120,7 +120,7 @@ Public Sub WriteFile_ByLine()
     
     ' TODO - check using fileSystemObject
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To MainModule.Iterations
         Dim filename As String
         filename = TestFilePrefix & i & "_WriteAllLines" & TestFileExtension
@@ -145,7 +145,7 @@ Public Sub RenameFiles()
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To MainModule.Iterations
         Dim filename As String
         Dim newFilename As String
@@ -172,7 +172,7 @@ Public Sub CopyFiles()
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To MainModule.Iterations
         FileCopy TestFilesDirectory & "\" & TestFilePrefix & i & TestFileExtension, copyDirectory & "\" & TestFilePrefix & i & "_copied" & TestFileExtension
     Next
@@ -187,7 +187,7 @@ Public Sub DeleteFiles()
     Dim stopwatch As Variant
     stopwatch = TimerEx
 
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To MainModule.Iterations
         Kill TestFilesDirectory & "\" & TestFilePrefix & i & TestFileExtension
     Next
@@ -209,7 +209,7 @@ Private Sub CreateTestFiles()
         MkDir TestFilesDirectory
     End If
     
-    Dim i As Integer
+    Dim i As Long
     For i = 1 To MainModule.Iterations
         Dim filename As String
         filename = TestFilePrefix & i & TestFileExtension
