@@ -112,7 +112,7 @@ Public Sub PrintElapsedTime(testName As String, stopwatch As Variant, Optional t
         timeUnit = " milliseconds"
     End If
 
-    Call LogText(testName & " N = " & testIterations & " = " & stopwatch & timeUnit)
+    Call LogText(testName & " N = " & testIterations & " = " & Format(stopwatch, "0.000") & timeUnit)
 End Sub
 
 Private Sub RunTestsFor(staticClass As Variant, functionName As String)

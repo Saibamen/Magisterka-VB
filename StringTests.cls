@@ -141,7 +141,7 @@ Public Sub LCaseTest()
     Next
 
     stopwatch = TimerEx - stopwatch
-    Call PrintElapsedTime("LCaseTest", stopwatch, testIterations, True)
+    Call PrintElapsedTime("LCaseTest", stopwatch, testIterations)
 End Sub
 
 ' NOTE: Increased to 1000000 iterations. Time in milliseconds
@@ -159,7 +159,7 @@ Public Sub UCaseTest()
     Next
 
     stopwatch = TimerEx - stopwatch
-    Call PrintElapsedTime("UCaseTest", stopwatch, testIterations, True)
+    Call PrintElapsedTime("UCaseTest", stopwatch, testIterations)
 End Sub
 
 ' NOTE: Increased to 1000000 iterations. Time in milliseconds
@@ -177,7 +177,7 @@ Public Sub ReplaceTest()
     Next
 
     stopwatch = TimerEx - stopwatch
-    Call PrintElapsedTime("ReplaceTest", stopwatch, testIterations, True)
+    Call PrintElapsedTime("ReplaceTest", stopwatch, testIterations)
 End Sub
 
 ' NOTE: Increased to 1000000 iterations. Time in milliseconds
