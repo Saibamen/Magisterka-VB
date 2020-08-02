@@ -42,7 +42,7 @@ Public Sub RoundDecimalPlacesTest()
 
     Dim i As Long
     For i = 1 To testIterations
-        returnVar = Format(32000.9876545569, "0.000")
+        returnVar = Format(32000.9876545569, "#.###")
     Next
 
     stopwatch = TimerEx - stopwatch

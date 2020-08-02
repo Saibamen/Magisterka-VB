@@ -93,7 +93,7 @@ Sub Main()
     
     stopwatch = TimerEx - stopwatch
     Dim stopwatchMinutes As Variant
-    stopwatchMinutes = Format(stopwatch / 60, "0.000")
+    stopwatchMinutes = Format(stopwatch / 60, "#.###")
     Call LogText("All tests executed in " & stopwatchMinutes & " minutes")
     Debug.Print "Log file saved in " & BaseDirectory & LogFilename
     MsgBox "All tests executed in " & stopwatchMinutes & " minutes" & vbNewLine & "Log file saved in " & BaseDirectory & LogFilename, 0, "Main"
@@ -112,7 +112,7 @@ Public Sub PrintElapsedTime(testName As String, stopwatch As Variant, Optional t
         timeUnit = " milliseconds"
     End If
 
-    Call LogText(testName & " N = " & testIterations & " = " & Format(stopwatch, "0.000") & timeUnit)
+    Call LogText(testName & " N = " & testIterations & " = " & Format(stopwatch, "#.###") & timeUnit)
 End Sub
 
 Private Sub RunTestsFor(staticClass As Variant, functionName As String)
