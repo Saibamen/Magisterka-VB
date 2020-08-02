@@ -78,6 +78,8 @@ Sub Main()
     Call RunTestsFor(StringTests, "LenTest")
     Call RunTestsFor(StringTests, "LCaseTest")
     Call RunTestsFor(StringTests, "UCaseTest")
+    Call RunTestsFor(StringTests, "ReplaceTest")
+    Call RunTestsFor(StringTests, "PadLeftTest")
     
     'Call LogText()
     

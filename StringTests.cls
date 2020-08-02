@@ -99,7 +99,7 @@ Public Sub TrimTest()
     Dim i As Integer
     For i = 1 To testIterations
         Dim textToTrim As String
-        ' 520 characters, 10 whitespaces at beginning and end
+        ' 520 characters, 10 whitespaces both at beginning and end
         textToTrim = "          ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTextToSearcherationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@ThisIsExample123StringToTestStringOperationsTESTweThisIsExample123StringToTestStringOperationsTEST!@          "
         returnVar = Trim(TestString)
     Next
@@ -160,4 +160,43 @@ Public Sub UCaseTest()
 
     stopwatch = TimerEx - stopwatch
     Call PrintElapsedTime("UCaseTest", stopwatch, testIterations, True)
+End Sub
+
+' NOTE: Increased to 32000 iterations. Time in milliseconds
+Public Sub ReplaceTest()
+    Dim testIterations As Integer
+    testIterations = 32000
+    Dim returnVar As String
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Integer
+    For i = 1 To testIterations
+        returnVar = Replace(TestString, "TextToSearch", "ChangedText1")
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("ReplaceTest", stopwatch, testIterations, True)
+End Sub
+
+' NOTE: Increased to 32000 iterations. Time in milliseconds
+Public Sub PadLeftTest()
+    Dim testIterations As Integer
+    testIterations = 32000
+    Dim returnVar As String
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Integer
+    For i = 1 To testIterations
+        Dim missingWidth As Integer
+        ' First number is total width we want to achieve like in C# PadLeft()
+        missingWidth = 1000 - Len(TestString)
+        returnVar = Right(String(missingWidth, "#") & TestString, Len(TestString) + missingWidth)
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("PadLeftTest", stopwatch, testIterations, True)
 End Sub
