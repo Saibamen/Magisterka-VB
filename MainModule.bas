@@ -81,14 +81,14 @@ Sub Main()
     Call RunTestsFor(StringTests, "ReplaceTest")
     Call RunTestsFor(StringTests, "PadLeftTest")
     
-    'Call LogText()
+    Call LogText
     
     ' NumberTests
-    'Call LogText("NumberTests" & vbNewLine)
+    Call LogText("NumberTests" & vbNewLine)
 
-    '
+    Call RunTestsFor(NumberTests, "IntTest")
     
-    'Call LogText()
+    Call LogText
     
     stopwatch = TimerEx - stopwatch
     Call LogText("All tests executed in " & stopwatch / 60 & " minutes")
