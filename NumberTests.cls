@@ -48,7 +48,7 @@ Public Sub RoundDecimalPlacesTest()
 End Sub
 
 ' NOTE: Increased to 1000000 iterations. Time in milliseconds
-Public Sub AddIntTest()
+Public Sub BasicMathTest()
     Dim returnVar As Double
 
     Dim stopwatch As Variant
@@ -56,9 +56,26 @@ Public Sub AddIntTest()
 
     Dim i As Long
     For i = 1 To NumberTestsIterations
-        returnVar = Sin(8546161887.15885)
+        returnVar = (51564981649.3 - 864518.9 + 9841598198.3 * 11869.4) / 6.7423
     Next
 
     stopwatch = TimerEx - stopwatch
-    Call PrintElapsedTime("AddIntTest", stopwatch, NumberTestsIterations, True)
+    Call PrintElapsedTime("BasicMathTest", stopwatch, NumberTestsIterations, True)
+End Sub
+
+' NOTE: Increased to 1000000 iterations
+Public Sub RandomNumberTest()
+    Dim returnVar As Integer
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Long
+    For i = 1 To NumberTestsIterations
+        Randomize Timer
+        returnVar = Int((2560 - 256 + 1) * Rnd + 256)
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("RandomNumberTest", stopwatch, NumberTestsIterations)
 End Sub
