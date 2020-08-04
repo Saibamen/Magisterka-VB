@@ -63,6 +63,54 @@ Public Sub BasicMathTest()
     Call PrintElapsedTime("BasicMathTest", stopwatch, NumberTestsIterations, True)
 End Sub
 
+' NOTE: Increased to 1000000 iterations. Time in milliseconds
+Public Sub ModuloTest()
+    Dim returnVar As Double
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Long
+    For i = 1 To NumberTestsIterations
+        returnVar = Sqr(1568464648.23423)
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("ModuloTest", stopwatch, NumberTestsIterations, True)
+End Sub
+
+' NOTE: Increased to 1000000 iterations. Time in milliseconds
+Public Sub AtanTest()
+    Dim returnVar As Double
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Long
+    For i = 1 To NumberTestsIterations
+        returnVar = Atn(1568464648.23423)
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("AtanTest", stopwatch, NumberTestsIterations, True)
+End Sub
+
+' NOTE: Increased to 1000000 iterations. Time in milliseconds
+Public Sub ExpTest()
+    Dim returnVar As Double
+
+    Dim stopwatch As Variant
+    stopwatch = TimerEx
+
+    Dim i As Long
+    For i = 1 To NumberTestsIterations
+        returnVar = Exp(158.234234)
+    Next
+
+    stopwatch = TimerEx - stopwatch
+    Call PrintElapsedTime("ExpTest", stopwatch, NumberTestsIterations, True)
+End Sub
+
 ' NOTE: Increased to 1000000 iterations
 Public Sub RandomNumberTest()
     Dim returnVar As Integer

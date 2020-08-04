@@ -92,6 +92,9 @@ Sub Main()
     Call RunTestsFor(NumberTests, "IntTest")
     Call RunTestsFor(NumberTests, "RoundDecimalPlacesTest")
     Call RunTestsFor(NumberTests, "BasicMathTest")
+    Call RunTestsFor(NumberTests, "ModuloTest")
+    Call RunTestsFor(NumberTests, "AtanTest")
+    Call RunTestsFor(NumberTests, "ExpTest")
     Call RunTestsFor(NumberTests, "RandomNumberTest")
     
     Call LogText
