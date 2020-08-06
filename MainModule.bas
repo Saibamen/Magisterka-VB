@@ -38,6 +38,7 @@ Sub Main()
     End If
     
     Debug.Print
+    Call LogText(Date & " " & Time & vbNewLine)
     
     ' Use QueryPerformanceCounter instead of the more inaccurate GetTickCount
     Dim stopwatch As Variant
