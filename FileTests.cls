@@ -26,7 +26,7 @@ Public Sub DeleteTestFiles()
         Exit Sub
     End If
     
-    Call LogText("Deleting test files...")
+    Debug.Print ("Deleting test files...")
     
     If Dir(TestFilesDirectory & "\*") <> "" Then
         Kill TestFilesDirectory & "\*"
@@ -199,7 +199,7 @@ End Sub
 Private Sub CreateTestFiles()
     Call DeleteTestFiles
     
-    Call LogText("Creating test files...")
+    Debug.Print ("Creating test files...")
     
     Dim testFileContent As String
     testFileContent = ReadTestFileContent()
