@@ -117,8 +117,6 @@ Public Sub WriteFile_ByLine()
 
     Dim stopwatch As Variant
     stopwatch = TimerEx
-    
-    ' TODO - check using fileSystemObject
 
     Dim i As Long
     For i = 1 To MainModule.Iterations
