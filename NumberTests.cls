@@ -64,7 +64,7 @@ Public Sub BasicMathTest()
 End Sub
 
 ' NOTE: Increased to 1000000 iterations. Time in milliseconds
-Public Sub ModuloTest()
+Public Sub SqrtTest()
     Dim returnVar As Double
 
     Dim stopwatch As Variant
@@ -76,7 +76,7 @@ Public Sub ModuloTest()
     Next
 
     stopwatch = TimerEx - stopwatch
-    Call PrintElapsedTime("ModuloTest", stopwatch, NumberTestsIterations, True)
+    Call PrintElapsedTime("SqrtTest", stopwatch, NumberTestsIterations, True)
 End Sub
 
 ' NOTE: Increased to 1000000 iterations. Time in milliseconds
